@@ -16,7 +16,7 @@ export default function AiSalesBot() {
       id: 'msg-welcome',
       role: 'assistant',
       content:
-        '👋 Welcome to SJO LABS! I am your 24/7 AI Sales Concierge. How can I help you accelerate your business today? Feel free to ask about our Web Architecture ($500+), Mobile Apps ($600+), AI Automation ($200+), or Meta/Google Ads ($300+)!',
+        "Hey there! 👋 Welcome to SJO LABS. I'm your digital growth strategist. Whether you're looking to launch a high-speed website, build a mobile app, automate leads with AI, or scale paid ads — I'm here to help. What is the main milestone you want to achieve for your business right now?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -37,11 +37,12 @@ export default function AiSalesBot() {
   }, [messages, isOpen]);
 
   const quickPrompts = [
-    'What services do you offer?',
-    'How much does a Next.js website cost?',
-    'Tell me about AI Automation workflows',
-    'I want to get a project quote',
+    'How can Next.js web dev increase my sales?',
+    'How does 45-second AI lead triage work?',
+    'What are your pricing packages?',
+    'I want a custom strategy & quote',
   ];
+
 
   const handleSendMessage = async (textToSend?: string) => {
     const query = textToSend || inputQuery;
