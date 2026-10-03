@@ -1,0 +1,87 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'class',
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'surface': '#10131A',
+        'surface-dim': '#10131A',
+        'surface-bright': '#363941',
+        'surface-container-lowest': '#0B0E15',
+        'surface-container-low': '#191B23',
+        'surface-container': '#1D2027',
+        'surface-container-high': '#272A31',
+        'surface-container-highest': '#32353C',
+        'surface-variant': '#32353C',
+        'on-surface': '#EDEFF3',
+        'on-surface-variant': '#E5BDB8',
+        'inverse-surface': '#E0E2EC',
+        'inverse-on-surface': '#2D3038',
+        'outline': '#AC8884',
+        'outline-variant': '#5C403C',
+        'surface-tint': '#FFB4AA',
+        'primary': '#FFB4AA',
+        'on-primary': '#690003',
+        'primary-container': '#FF4B3E',
+        'on-primary-container': '#5C0002',
+        'primary-fixed': '#FFDAD5',
+        'primary-fixed-dim': '#FFB4AA',
+        'on-primary-fixed': '#410001',
+        'on-primary-fixed-variant': '#930006',
+        'secondary': '#BAC3FF',
+        'on-secondary': '#00218D',
+        'secondary-container': '#2748D6',
+        'on-secondary-container': '#A3B0FF',
+        'secondary-fixed': '#DEE1FF',
+        'secondary-fixed-dim': '#BAC3FF',
+        'on-secondary-fixed': '#001159',
+        'on-secondary-fixed-variant': '#0131C4',
+        'tertiary': '#BFC7D6',
+        'on-tertiary': '#29313C',
+        'tertiary-container': '#8B93A1',
+        'on-tertiary-container': '#222A36',
+        'tertiary-fixed': '#DBE3F2',
+        'tertiary-fixed-dim': '#BFC7D6',
+        'on-tertiary-fixed': '#141C27',
+        'on-tertiary-fixed-variant': '#3F4753',
+        'background': '#10131A',
+        'on-background': '#EDEFF3',
+        'error': '#FFB4AB',
+        'on-error': '#690005',
+        'error-container': '#93000A',
+        'on-error-container': '#FFDAD6'
+      },
+      borderRadius: {
+        'DEFAULT': '0.125rem',
+        'sm': '0.125rem',
+        'md': '0.25rem',
+        'lg': '0.25rem',
+        'xl': '0.5rem',
+        'full': '9999px'
+      },
+      spacing: {
+        'gutter': '1.5rem',
+        'margin': '2rem',
+        'space-xs': '0.25rem',
+        'space-sm': '0.5rem',
+        'space-md': '1rem',
+        'space-lg': '1.5rem',
+        'space-xl': '2.5rem'
+      },
+      fontFamily: {
+        'headline': ['Space Grotesk', 'sans-serif'],
+        'display': ['Space Grotesk', 'sans-serif'],
+        'sans': ['Inter', 'sans-serif'],
+        'mono': ['IBM Plex Mono', 'monospace'],
+        'label-mono': ['IBM Plex Mono', 'monospace'],
+        'metric-mono': ['IBM Plex Mono', 'monospace']
+      }
+    }
+  },
+  plugins: [],
+}
