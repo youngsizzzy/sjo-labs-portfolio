@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import AiSalesBot from '@/components/AiSalesBot';
 import './globals.css';
 
+
 export const metadata: Metadata = {
+
   metadataBase: new URL('https://sjolabs.com'),
   title: 'SJO LABS® — Web Design & Dev, Mobile Apps, AI Automation & Meta/Google Ads',
   description: 'SJO LABS is a high-velocity digital service studio offering Web Design & Development, Mobile Apps, WordPress, Autonomous AI Automation, AI Chatbots, AI Phone Agents, AI Search Visibility, and Meta & Google Ads.',
@@ -92,7 +95,9 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-surface-container-lowest overflow-x-hidden min-h-screen flex flex-col">
         {children}
+        <AiSalesBot />
       </body>
+
     </html>
   );
 }
