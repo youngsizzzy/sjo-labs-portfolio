@@ -65,3 +65,17 @@
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+/* Hide Netlify Drawer & Powered by Netlify Badge Overlays */
+#netlify-drawer,
+[data-netlify-drawer],
+[class*="netlify-drawer"],
+[id*="netlify-drawer"],
+iframe[src*="netlify"],
+div[class*="netlify-badge"],
+.netlify-badge-embed {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
