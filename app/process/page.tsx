@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   title: 'Engineering Process, Protocol & Sprint Simulator | SJO LABS',
   description: 'Our 4-stage engineering protocol: Audit & Telemetry, Decoupled Architecture, AI & CAPI Deployment, and Algorithmic Scaling. Inspect sprint timelines and SLAs.',
   alternates: {
-    canonical: 'https://sjolabs.com/process',
+    canonical: 'https://sjolabs.site/process',
   },
   openGraph: {
     title: 'Engineering Process, Protocol & Sprint Simulator | SJO LABS',
     description: 'Our 4-stage engineering protocol: Audit & Telemetry, Decoupled Architecture, AI & CAPI Deployment, and Algorithmic Scaling. Inspect sprint timelines and SLAs.',
-    url: 'https://sjolabs.com/process',
+    url: 'https://sjolabs.site/process',
     siteName: 'SJO LABS',
     type: 'website',
   },

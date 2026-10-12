@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   title: 'Commercial Services Catalog (All 8 Services) | SJO LABS',
   description: 'Explore SJO LABS 8 primary services: Web Design & Web Development, Mobile App Development, WordPress, AI Automation, AI Chatbots, AI Phone Agents, AI Search Visibility, and Meta & Google Ads.',
   alternates: {
-    canonical: 'https://sjolabs.com/services',
+    canonical: 'https://sjolabs.site/services',
   },
   openGraph: {
     title: 'Commercial Services Catalog (All 8 Services) | SJO LABS',
     description: 'Explore SJO LABS 8 primary services: Web Design & Web Development, Mobile App Development, WordPress, AI Automation, AI Chatbots, AI Phone Agents, AI Search Visibility, and Meta & Google Ads.',
-    url: 'https://sjolabs.com/services',
+    url: 'https://sjolabs.site/services',
     siteName: 'SJO LABS',
     type: 'website',
   },

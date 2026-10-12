@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Insights & Technical Field Notes | SJO LABS Blog',
   description: 'Deep-dives on Sub-Second TTFB, Next.js App Router, 45-Second AI Lead Triage, and Server-Side Meta CAPI Attribution.',
   alternates: {
-    canonical: 'https://sjolabs.com/blog',
+    canonical: 'https://sjolabs.site/blog',
   },
   openGraph: {
     title: 'Insights & Technical Field Notes | SJO LABS Blog',
     description: 'Deep-dives on Sub-Second TTFB, Next.js App Router, 45-Second AI Lead Triage, and Server-Side Meta CAPI Attribution.',
-    url: 'https://sjolabs.com/blog',
+    url: 'https://sjolabs.site/blog',
     siteName: 'SJO LABS',
     type: 'website',
   },

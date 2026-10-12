@@ -1,11 +1,20 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ProjectItem, getStoredProjects, saveStoredProjects } from '@/lib/adminStore';
+import {
+  ProjectItem,
+  getStoredProjects,
+  addStoredProject,
+  deleteStoredProject,
+  fetchProjectsFromSupabase,
+} from '@/lib/adminStore';
 
 export default function AdminProjectsManager() {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [isFetchingLive, setIsFetchingLive] = useState(true);
 
   // Form State
   const [title, setTitle] = useState('');
@@ -18,25 +27,72 @@ export default function AdminProjectsManager() {
   const [uploadMode, setUploadMode] = useState<'file' | 'url'>('file');
 
   useEffect(() => {
+    // 1. Initial render from local cache
     setProjects(getStoredProjects());
+
+    // 2. Fetch fresh live state directly from Supabase
+    fetchProjectsFromSupabase()
+      .then((liveData) => {
+        if (liveData && liveData.length > 0) {
+          setProjects(liveData);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching live projects:', err);
+      })
+      .finally(() => {
+        setIsFetchingLive(false);
+      });
   }, []);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Use HTML Canvas to downscale and compress images to <100KB JPEG
+    // This prevents localStorage QuotaExceededError and ensures instant loading
     const reader = new FileReader();
-    reader.onloadend = () => {
-      if (reader.result) {
-        setImageSrc(reader.result as string);
-      }
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 1200;
+        const MAX_HEIGHT = 800;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height = Math.round((height * MAX_WIDTH) / width);
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width = Math.round((width * MAX_HEIGHT) / height);
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressed = canvas.toDataURL('image/jpeg', 0.8);
+          setImageSrc(compressed);
+        } else {
+          setImageSrc(event.target?.result as string);
+        }
+      };
+      img.src = event.target?.result as string;
     };
     reader.readAsDataURL(file);
   };
 
-  const handleAddProject = (e: React.FormEvent) => {
+  const handleAddProject = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !description) return;
+    setIsSaving(true);
 
     const newProj: ProjectItem = {
       id: `proj-${Date.now()}`,
@@ -50,25 +106,39 @@ export default function AdminProjectsManager() {
       date: 'OCT 2026',
     };
 
-    const updated = [newProj, ...projects];
-    setProjects(updated);
-    saveStoredProjects(updated);
+    // Optimistically update list
+    setProjects((prev) => [newProj, ...prev]);
 
-    // Reset Form
-    setTitle('');
-    setDescription('');
-    setImageSrc('');
-    setLiveUrl('');
-    setMetrics('');
-    setTechStackInput('');
-    setShowAddModal(false);
+    try {
+      await addStoredProject(newProj);
+    } catch (err) {
+      console.error('Failed to add project:', err);
+    } finally {
+      setIsSaving(false);
+      // Reset Form
+      setTitle('');
+      setDescription('');
+      setImageSrc('');
+      setLiveUrl('');
+      setMetrics('');
+      setTechStackInput('');
+      setShowAddModal(false);
+    }
   };
 
-  const handleDeleteProject = (id: string) => {
+  const handleDeleteProject = async (id: string) => {
     if (confirm('Are you sure you want to delete this portfolio project?')) {
-      const updated = projects.filter((p) => p.id !== id);
-      setProjects(updated);
-      saveStoredProjects(updated);
+      setDeletingId(id);
+      // Optimistically remove from state
+      setProjects((prev) => prev.filter((p) => p.id !== id));
+
+      try {
+        await deleteStoredProject(id);
+      } catch (err) {
+        console.error('Failed to delete project:', err);
+      } finally {
+        setDeletingId(null);
+      }
     }
   };
 
@@ -278,9 +348,10 @@ export default function AdminProjectsManager() {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#00F0FF] text-[#090D16] font-mono font-bold text-xs hover:bg-white transition-all shadow-lg shadow-[#00F0FF]/20"
+                  disabled={isSaving}
+                  className="px-6 py-2.5 rounded-xl bg-[#00F0FF] text-[#090D16] font-mono font-bold text-xs hover:bg-white transition-all shadow-lg shadow-[#00F0FF]/20 disabled:opacity-50"
                 >
-                  Publish Project
+                  {isSaving ? 'Publishing to Database...' : 'Publish Project'}
                 </button>
               </div>
             </form>
@@ -289,24 +360,34 @@ export default function AdminProjectsManager() {
       )}
 
       {/* Projects List Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((proj) => (
-          <div
-            key={proj.id}
-            className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-4 hover:border-[#00F0FF] transition-all"
-          >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-[#090D16] text-[#00F0FF] text-[10px] font-mono font-bold uppercase">
-                  {proj.category}
-                </span>
-                <button
-                  onClick={() => handleDeleteProject(proj.id)}
-                  className="text-xs font-mono text-red-500 hover:text-red-700"
-                >
-                  [ Delete ]
-                </button>
-              </div>
+      {isFetchingLive && projects.length === 0 ? (
+        <div className="p-12 text-center text-xs font-mono text-[#64748B] bg-white border border-[#E2E8F0] rounded-2xl">
+          Fetching live projects from Supabase database...
+        </div>
+      ) : projects.length === 0 ? (
+        <div className="p-12 text-center text-xs font-mono text-[#64748B] bg-white border border-[#E2E8F0] rounded-2xl">
+          No projects found. Click &quot;+ Add New Project Work&quot; above to create one.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((proj) => (
+            <div
+              key={proj.id}
+              className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-4 hover:border-[#00F0FF] transition-all"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-[#090D16] text-[#00F0FF] text-[10px] font-mono font-bold uppercase">
+                    {proj.category}
+                  </span>
+                  <button
+                    onClick={() => handleDeleteProject(proj.id)}
+                    disabled={deletingId === proj.id}
+                    className="text-xs font-mono text-red-500 hover:text-red-700 disabled:opacity-40"
+                  >
+                    {deletingId === proj.id ? '[ Deleting... ]' : '[ Delete ]'}
+                  </button>
+                </div>
 
               {/* Thumbnail Image Preview */}
               {proj.imageSrc && (
@@ -355,6 +436,7 @@ export default function AdminProjectsManager() {
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 }

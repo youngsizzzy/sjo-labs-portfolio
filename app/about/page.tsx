@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   title: 'About SJOLabs — Digital Service Studio & Web Engineering',
   description: 'Learn about SJOLabs, our core service capabilities across Web Design & Development, Mobile Apps, WordPress, AI Chatbots, AI Automation, AI Phone Agents, AI Search Visibility, and Meta & Google Ads.',
   alternates: {
-    canonical: 'https://sjolabs.com/about',
+    canonical: 'https://sjolabs.site/about',
   },
   openGraph: {
     title: 'About SJOLabs — Digital Service Studio & Web Engineering',
     description: 'Learn about SJOLabs, our core service capabilities across Web Design & Development, Mobile Apps, WordPress, AI Chatbots, AI Automation, AI Phone Agents, AI Search Visibility, and Meta & Google Ads.',
-    url: 'https://sjolabs.com/about',
+    url: 'https://sjolabs.site/about',
     siteName: 'SJO LABS',
     type: 'website',
   },

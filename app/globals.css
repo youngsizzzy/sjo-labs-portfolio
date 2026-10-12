@@ -66,16 +66,130 @@
   animation: marquee 25s linear infinite;
 }
 
-/* Hide Netlify Drawer & Powered by Netlify Badge Overlays */
+/* Completely hide Netlify Toolbar, Badge, Drawer, Feedback & Powered by Netlify overlays everywhere */
 #netlify-drawer,
 [data-netlify-drawer],
 [class*="netlify-drawer"],
 [id*="netlify-drawer"],
+#netlify-badge,
+.netlify-badge,
+[data-netlify-badge],
+[class*="netlify-badge"],
+[id*="netlify-badge"],
+.netlify-badge-embed,
+#netlify-toolbar,
+[data-netlify-toolbar],
+[class*="netlify-toolbar"],
+[id*="netlify-toolbar"],
+#netlify-feedback,
+[data-netlify-feedback],
+[class*="netlify-feedback"],
+[id*="netlify-feedback"],
 iframe[src*="netlify"],
 div[class*="netlify-badge"],
-.netlify-badge-embed {
+netlify-badge,
+netlify-toolbar,
+[data-netlify-deploy-id],
+a[href*="netlify.com"][class*="badge"],
+a[href*="netlify.com"][style*="fixed"],
+a[href*="netlify.com"][style*="position: fixed"],
+div[style*="fixed"][style*="bottom"] a[href*="netlify"],
+div[style*="position: fixed"][style*="bottom:"] a[href*="netlify"],
+div[style*="z-index"][style*="bottom"] a[href*="netlify"],
+div[style*="fixed"] svg[width="24"][height="24"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -9999 !important;
+}
+
+
+/* Mobile responsive fixes for 'Start A Project Inquiry' form */
+@media (max-width: 767px) {
+  .inquiry-form-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .inquiry-form-box {
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .inquiry-form,
+  .inquiry-form form {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .inquiry-form input,
+  .inquiry-form select,
+  .inquiry-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Compact circular AI bot button fixed 20px from bottom-right on mobile */
+  .ai-bot-widget-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+    z-index: 9999 !important;
+  }
+
+  .ai-bot-trigger-btn {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    padding: 0 !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 3-Time Scale Pulse Animation for AI Bot Button */
+@keyframes scalePulse3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-pulse-3-times {
+  animation: scalePulse3 0.6s ease-in-out 3;
 }

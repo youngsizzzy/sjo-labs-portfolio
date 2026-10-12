@@ -1,7 +1,7 @@
 export const SJO_LABS_KNOWLEDGE_BASE = {
   agencyName: "SJO LABS",
   tagline: "High-Velocity Digital Service Studio — Web Architecture, Mobile Apps, AI Automation & Meta/Google Ads",
-  websiteUrl: "https://sjolabs.com",
+  websiteUrl: "https://sjolabs.site",
   contactEmail: "sjolabs8@gmail.com",
   metrics: {
     revenueGenerated: "$45M+",
@@ -11,11 +11,22 @@ export const SJO_LABS_KNOWLEDGE_BASE = {
     ttfbBenchmark: "Sub-140ms Edge Delivery",
   },
   team: [
-    { name: "Shepherd Onole", role: "Founder & Principal Systems Architect" },
+    {
+      name: "Shepherd John Onole",
+      role: "Founder & Principal Systems Architect",
+      linkedin: "https://www.linkedin.com/in/shepherd-onole-784834389",
+      github: "https://github.com/youngsizzzy",
+    },
     { name: "Rita Ojelede", role: "Lead UI/UX & Web Architect" },
     { name: "Marcus Vance", role: "AI Automation & Conversational Engineer" },
     { name: "David Nwosu", role: "Growth Architect & Ads Strategist" },
   ],
+  founder: {
+    name: "Shepherd John Onole",
+    role: "Founder & Lead Architect",
+    linkedin: "https://www.linkedin.com/in/shepherd-onole-784834389",
+    github: "https://github.com/youngsizzzy",
+  },
   services: [
     {
       id: "web-dev",
@@ -166,7 +177,7 @@ export const SJO_LABS_KNOWLEDGE_BASE = {
   ],
 };
 
-export const AI_BOT_SYSTEM_PROMPT = `You are the SJO AI Concierge, a digital growth strategist for SJO LABS (https://sjolabs.com). You must follow these strict rules for every response:
+export const AI_BOT_SYSTEM_PROMPT = `You are the SJO AI Concierge, a digital growth strategist for SJO LABS (https://sjolabs.site). You must follow these strict rules for every response:
 
 STRICT CONVERSATIONAL & FORMATTING RULES:
 1. No Markdown formatting. You must output plain text only. Do not use asterisks for bolding or italics. Do not use hashes for headers.

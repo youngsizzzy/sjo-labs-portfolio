@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getStoredBlogs } from '@/lib/adminStore';
 import { SERVICES_CONFIG } from '@/lib/servicesConfig';
 
-const BASE_URL = 'https://sjolabs.com';
+const BASE_URL = 'https://sjolabs.site';
 
 const SERVER_BLOG_SLUGS = [
   'sub-second-ttfb-nextjs-guide',

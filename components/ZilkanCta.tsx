@@ -54,46 +54,46 @@ export default function ZilkanCta() {
   };
 
   return (
-    <section className="relative w-full bg-[#F8FAFC] py-16 md:py-24 px-6 md:px-12 border-t border-[#E2E8F0]" id="contact">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-[#090D16] text-[#F8FAFC] rounded-3xl p-8 md:p-16 shadow-2xl relative overflow-hidden border border-[#1E293B]">
+    <section className="relative w-full bg-[#F8FAFC] py-8 sm:py-16 md:py-24 px-2 sm:px-6 md:px-12 border-t border-[#E2E8F0]" id="contact">
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="bg-[#090D16] text-[#F8FAFC] rounded-2xl sm:rounded-3xl p-3 sm:p-8 md:p-14 shadow-2xl relative overflow-hidden border border-[#1E293B] w-full inquiry-form-container">
           {/* Subtle Cyan Glow */}
           <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#00F0FF]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10 w-full">
             {/* Left Info Column */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="bg-[#2563EB] text-white font-sans text-xs uppercase tracking-wider px-4 py-1.5 rounded-full inline-block font-bold shadow-md">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-6 text-left px-1 sm:px-0">
+              <span className="bg-[#2563EB] text-white font-sans text-[11px] sm:text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block font-bold shadow-md">
                 SJO LABS • ACCEPTING NEW CLIENTS
               </span>
 
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#00F0FF] leading-tight drop-shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+              <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#00F0FF] leading-tight drop-shadow-[0_0_20px_rgba(0,240,255,0.2)]">
                 Ready to engineer your digital growth?
               </h2>
 
-              <p className="font-sans text-sm md:text-base text-[#94A3B8] leading-relaxed max-w-lg">
+              <p className="font-sans text-xs sm:text-sm md:text-base text-[#94A3B8] leading-relaxed max-w-lg">
                 Let&apos;s discuss how SJO LABS can accelerate your business through high-velocity Web Design, Web Architecture, AI Automations, AI Phone Agents, and AI Search Visibility.
               </p>
 
-              <div className="space-y-3 pt-2 font-sans">
+              <div className="space-y-2.5 pt-1 font-sans">
                 <div className="flex items-center space-x-3 text-xs md:text-sm text-[#F8FAFC]">
-                  <span className="material-symbols-outlined text-[#00F0FF] text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-[#00F0FF] text-base shrink-0">check_circle</span>
                   <span>Guaranteed response within 24 business hours</span>
                 </div>
                 <div className="flex items-center space-x-3 text-xs md:text-sm text-[#F8FAFC]">
-                  <span className="material-symbols-outlined text-[#00F0FF] text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-[#00F0FF] text-base shrink-0">check_circle</span>
                   <span>Direct working access with senior engineers &amp; strategists</span>
                 </div>
                 <div className="flex items-center space-x-3 text-xs md:text-sm text-[#F8FAFC]">
-                  <span className="material-symbols-outlined text-[#00F0FF] text-base">check_circle</span>
+                  <span className="material-symbols-outlined text-[#00F0FF] text-base shrink-0">check_circle</span>
                   <span>Transparent starting prices with zero hidden fees</span>
                 </div>
               </div>
             </div>
 
             {/* Right Form Column */}
-            <div className="lg:col-span-6">
-              <div className="bg-[#131927] rounded-2xl p-6 md:p-8 border border-[#1E293B] text-left">
+            <div className="lg:col-span-6 w-full">
+              <div className="bg-[#131927] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-[#1E293B] text-left inquiry-form-box w-full">
                 {submitted ? (
                   <div className="text-center py-10 space-y-4">
                     <span className="material-symbols-outlined text-5xl text-[#00F0FF]">
@@ -107,8 +107,8 @@ export default function ZilkanCta() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4 font-sans">
-                    <h3 className="font-serif text-xl font-bold text-white mb-2">
+                  <form onSubmit={handleSubmit} className="space-y-4 font-sans inquiry-form w-full">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
                       Start A Project Inquiry
                     </h3>
 
@@ -121,7 +121,7 @@ export default function ZilkanCta() {
                           placeholder="Alexander Wright"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#00F0FF]"
                         />
                       </div>
                       <div>
@@ -132,7 +132,7 @@ export default function ZilkanCta() {
                           placeholder="alexander@company.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#00F0FF]"
                         />
                       </div>
                     </div>
@@ -146,7 +146,7 @@ export default function ZilkanCta() {
                           placeholder="Wright Enterprise LLC"
                           value={formData.businessName}
                           onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#00F0FF]"
                         />
                       </div>
                       <div>
@@ -154,7 +154,7 @@ export default function ZilkanCta() {
                         <select
                           value={formData.country}
                           onChange={(e) => setFormData({ ...formData, country: e.target.value as LeadCountry })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
                         >
                           <option value="USA">USA</option>
                           <option value="Canada">Canada</option>
@@ -172,7 +172,7 @@ export default function ZilkanCta() {
                         <select
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value as LeadService })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
                         >
                           <option value="Web Development">Web Development (From $500)</option>
                           <option value="Web Design">Web Design (From $500)</option>
@@ -189,7 +189,7 @@ export default function ZilkanCta() {
                         <select
                           value={formData.budget}
                           onChange={(e) => setFormData({ ...formData, budget: e.target.value as LeadBudget })}
-                          className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                          className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
                         >
                           <option value="Under $200">Under $200</option>
                           <option value="$200–$499">$200–$499</option>
@@ -209,13 +209,13 @@ export default function ZilkanCta() {
                         placeholder="Tell us about your business, what you need, and what you'd like the website or automation to accomplish."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-[#090D16] border border-[#1E293B] rounded-xl px-3.5 py-2 text-xs text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF]"
+                        className="w-full bg-[#090D16] border border-[#334155] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-[#F8FAFC] placeholder-[#64748B] focus:outline-none focus:border-[#00F0FF]"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full bg-[#00F0FF] hover:bg-[#33F3FF] text-[#090D16] font-bold text-xs md:text-sm py-3.5 rounded-xl transition-all duration-200 shadow-[0_0_20px_rgba(0,240,255,0.35)] uppercase tracking-wider mt-2"
+                      className="w-full bg-[#00F0FF] hover:bg-[#33F3FF] text-[#090D16] font-bold text-xs sm:text-sm py-3.5 sm:py-4 rounded-xl transition-all duration-200 shadow-[0_0_20px_rgba(0,240,255,0.35)] uppercase tracking-wider mt-2"
                     >
                       Send Project Inquiry
                     </button>

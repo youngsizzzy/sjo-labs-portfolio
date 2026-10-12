@@ -640,6 +640,75 @@ export function saveStoredProjects(projects: ProjectItem[]): void {
   }
 }
 
+/**
+ * Add a new project: updates local state and saves row directly to Supabase Postgres
+ */
+export async function addStoredProject(newProj: ProjectItem): Promise<ProjectItem[]> {
+  const current = getStoredProjects();
+  const updated = [newProj, ...current.filter((p) => p.id !== newProj.id)];
+  
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(updated));
+    } catch (e) {
+      console.error('Failed to save project to localStorage:', e);
+    }
+
+    try {
+      const supabase = createClient();
+      const row = {
+        id: newProj.id,
+        title: newProj.title,
+        category: newProj.category,
+        description: newProj.description,
+        image_src: newProj.imageSrc,
+        live_url: newProj.liveUrl || null,
+        metrics: newProj.metrics,
+        tech_stack: newProj.techStack || [],
+        date: newProj.date,
+      };
+
+      const { error } = await supabase.from('projects').upsert([row], { onConflict: 'id' });
+      if (error) console.error('Failed to add project to Supabase:', error);
+      else console.log(`Project ${newProj.id} successfully added to Supabase Postgres!`);
+    } catch (err) {
+      console.error('Supabase project insert error:', err);
+    }
+  }
+
+  return updated;
+}
+
+/**
+ * Delete a project: deletes directly from Supabase Postgres AND removes from local storage
+ */
+export async function deleteStoredProject(id: string): Promise<ProjectItem[]> {
+  const current = getStoredProjects();
+  const updated = current.filter((p) => p.id !== id);
+
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(updated));
+    } catch (e) {
+      console.error('Failed to remove project from localStorage:', e);
+    }
+
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.from('projects').delete().eq('id', id);
+      if (error) {
+        console.error(`Failed to delete project ${id} from Supabase:`, error);
+      } else {
+        console.log(`Successfully deleted project ${id} from Supabase Postgres!`);
+      }
+    } catch (err) {
+      console.error('Supabase project delete error:', err);
+    }
+  }
+
+  return updated;
+}
+
 
 export function getStoredBlogs(): BlogItem[] {
   if (typeof window === 'undefined') return DEFAULT_BLOGS;
@@ -906,7 +975,13 @@ export async function fetchProjectsFromSupabase(): Promise<ProjectItem[]> {
         date: d.date,
       }));
 
-      saveStoredProjects(mapped);
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(mapped));
+        } catch (e) {
+          console.error('Failed to cache fetched projects to localStorage:', e);
+        }
+      }
       return mapped;
     } else {
       return getStoredProjects();

@@ -118,7 +118,7 @@ export default function LeadEnquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 text-left font-sans">
+    <form onSubmit={handleSubmit} className="space-y-4 text-left font-sans inquiry-form w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Name */}
         <div>
@@ -187,7 +187,7 @@ export default function LeadEnquiryForm({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         {/* Service Needed */}
         <div>
           <label className="block text-xs font-mono uppercase tracking-wider text-[#94A3B8] mb-1">

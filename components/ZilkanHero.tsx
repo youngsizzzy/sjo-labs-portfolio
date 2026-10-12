@@ -16,13 +16,6 @@ export default function ZilkanHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: High-Converting Copy */}
           <div className="lg:col-span-7 space-y-7">
-            {/* Live Status Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#131927] border border-[#1E293B]">
-              <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-ping shrink-0"></span>
-              <span className="font-mono text-[11px] sm:text-xs text-[#00F0FF] font-semibold uppercase tracking-widest">
-                ACCEPTING Q3/Q4 CLIENTS · WEB · APPS · AI · ADS
-              </span>
-            </div>
 
             {/* Main Headline */}
             <div className="space-y-4">

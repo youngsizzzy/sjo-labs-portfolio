@@ -33,12 +33,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     description: service.metaDescription || service.shortDescription,
     keywords: [service.focusKeyword, service.name, 'SJO LABS', 'digital studio'],
     alternates: {
-      canonical: `https://sjolabs.com/services/${service.slug}`,
+      canonical: `https://sjolabs.site/services/${service.slug}`,
     },
     openGraph: {
       title: service.seoTitle || `${service.name} Services | SJO LABS`,
       description: service.metaDescription || service.shortDescription,
-      url: `https://sjolabs.com/services/${service.slug}`,
+      url: `https://sjolabs.site/services/${service.slug}`,
       siteName: 'SJO LABS',
       type: 'website',
     },
@@ -61,7 +61,7 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
         provider: {
           '@type': 'Organization',
           name: 'SJO LABS',
-          url: 'https://sjolabs.com',
+          url: 'https://sjolabs.site',
         },
         description: service.shortDescription,
         offers: {
@@ -78,19 +78,19 @@ export default function DynamicServicePage({ params }: ServicePageProps) {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://sjolabs.com',
+            item: 'https://sjolabs.site',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Services',
-            item: 'https://sjolabs.com/services',
+            item: 'https://sjolabs.site/services',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: service.name,
-            item: `https://sjolabs.com/services/${service.slug}`,
+            item: `https://sjolabs.site/services/${service.slug}`,
           },
         ],
       },

@@ -64,6 +64,24 @@ export default function ZilkanFooter() {
           </div>
 
           <div className="flex items-center space-x-6 text-[11px]">
+            <a
+              href="https://www.linkedin.com/in/shepherd-onole-784834389"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#00F0FF] transition-colors flex items-center gap-1.5"
+            >
+              <span>LinkedIn</span>
+            </a>
+            <span>•</span>
+            <a
+              href="https://github.com/youngsizzzy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#00F0FF] transition-colors flex items-center gap-1.5"
+            >
+              <span>GitHub</span>
+            </a>
+            <span>•</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span>•</span>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

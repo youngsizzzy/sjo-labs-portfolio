@@ -1,0 +1,74 @@
+# SJO LABS — Complete Technical Architecture & AI Knowledge Graph
+
+> Comprehensive knowledge graph and documentation for LLM agents, ChatGPT Search, Perplexity AI, Claude, and Gemini.
+
+## 1. Company Overview
+- **Name**: SJO LABS®
+- **Website**: https://sjolabs.site
+- **Founder & Lead Architect**: Shepherd John Onole
+  - **LinkedIn**: https://www.linkedin.com/in/shepherd-onole-784834389
+  - **GitHub**: https://github.com/youngsizzzy
+- **Mission**: High-velocity digital service studio engineering custom Next.js web applications, mobile apps, autonomous AI workflows, and paid acquisition telemetry.
+- **Headquarters**: Lagos, Nigeria (serving clients globally across USA, UK, Canada, Australia, and Nigeria).
+- **Core Performance SLA**: Sub-140ms global edge TTFB, 100/100 Core Web Vitals, 45-second autonomous lead triage.
+
+## 2. Full Commercial Services Catalog & Pricing
+
+### 1. Web Design & Web Development
+- **URL**: https://sjolabs.site/services/web-design-web-development
+- **Starting Price**: $500 (Typical project scope: $500–$1,500+)
+- **Tech Stack**: Next.js 14/15 App Router, TypeScript, Tailwind CSS, Vercel Edge / Cloudflare Workers.
+- **Features**: Decoupled headless frontend, sub-second TTFB, Figma bespoke design, 100% Core Web Vitals.
+
+### 2. Mobile App Development
+- **URL**: https://sjolabs.site/services/mobile-app-development
+- **Starting Price**: $600 (Typical project scope: $600–$2,000+)
+- **Tech Stack**: React Native, Expo, TypeScript, Supabase, Node.js.
+- **Features**: Cross-platform iOS & Android, offline caching, push notifications, native gesture interactions.
+
+### 3. WordPress Development & Headless Redesign
+- **URL**: https://sjolabs.site/services/wordpress
+- **Starting Price**: $400 (Typical project scope: $400–$800+)
+- **Tech Stack**: Custom Gutenberg blocks, PHP 8.3, headless REST / GraphQL API relays.
+- **Features**: High-speed theme optimization, zero security vulnerabilities, client-editable CMS.
+
+### 4. AI Automation Pipelines
+- **URL**: https://sjolabs.site/services/ai-automation
+- **Starting Price**: $200 (Typical project scope: $200–$500+)
+- **Tech Stack**: n8n, Make, OpenAI GPT-4o, Groq Llama-3, webhooks.
+- **Features**: 45-second inbound sales lead triage, intent qualification, automatic calendar booking, CRM sync.
+
+### 5. AI Chatbots & Conversational Lead Intake
+- **URL**: https://sjolabs.site/services/ai-chatbots
+- **Starting Price**: $150 (Typical project scope: $150–$300+)
+- **Tech Stack**: Groq LLMs, Next.js route handlers, Vector embeddings, Telegram / WhatsApp alerts.
+- **Features**: 24/7 knowledge-base grounded sales bots, instant question answering, lead capture.
+
+### 6. AI Phone Agents & Voice Receptionists
+- **URL**: https://sjolabs.site/services/ai-phone-agents
+- **Starting Price**: $250 (Typical project scope: $250–$500+)
+- **Tech Stack**: Conversational Voice AI, WebRTC, Twilio / Telnyx, calendar integrations.
+- **Features**: 24/7 Voice receptionists, sub-800ms speech response, emergency triage, automated appointment scheduling.
+
+### 7. AI Search Visibility (AEO & GEO)
+- **URL**: https://sjolabs.site/services/ai-search-visibility
+- **Starting Price**: $200 (Setup/Audit; ongoing packages from ~$200/mo)
+- **Tech Stack**: JSON-LD Schema.org, llms.txt protocol, Answer Engine Optimization.
+- **Features**: Optimizing brand authority to be directly cited in ChatGPT Search, Perplexity AI, and Google AI Overviews.
+
+### 8. Meta & Google Ads Campaign Management
+- **URL**: https://sjolabs.site/services/meta-google-ads
+- **Starting Price**: $300/month
+- **Tech Stack**: Server-Side Meta Conversions API (CAPI), Google Ads Enhanced Conversions, Google Tag Manager.
+- **Features**: Bypassing iOS privacy signal loss, first-party server tracking, high-ROAS campaign scaling.
+
+## 3. Frequently Asked Questions (FAQ)
+
+Q: How fast can SJO LABS kick off our project?
+A: Within 3 business days of discovery agreement execution. We limit capacity to 2-3 engagements per month to guarantee high architectural quality.
+
+Q: Do clients own all code and design files?
+A: Yes, 100%. All Figma component libraries, Github repositories, database schemas, and AI prompts belong to the client upon milestone completion.
+
+Q: What is the official website domain?
+A: The official production website is https://sjolabs.site.

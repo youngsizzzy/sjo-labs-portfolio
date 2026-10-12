@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface ChatMessage {
   id: string;
@@ -10,19 +11,26 @@ interface ChatMessage {
 }
 
 export default function AiSalesBot() {
+  const pathname = usePathname();
+
+  if (pathname === '/founding' || pathname?.startsWith('/founding')) {
+    return null;
+  }
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'msg-welcome',
       role: 'assistant',
       content:
-        "Hey there! 👋 Welcome to SJO LABS. I'm your digital growth strategist. Whether you're looking to launch a high-speed website, build a mobile app, automate leads with AI, or scale paid ads — I'm here to help. What is the main milestone you want to achieve for your business right now?",
+        "Hey there! 👋 I'm Shepherd from SJO LABS. Whether you're looking to launch a high-speed website, build a mobile app, automate leads with AI, or scale paid ads — I'm here to help. What is the main milestone you want to achieve for your business right now?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
   const [inputQuery, setInputQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [leadCapturedNotice, setLeadCapturedNotice] = useState(false);
+
+  const [showTooltip, setShowTooltip] = useState(true);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -35,6 +43,14 @@ export default function AiSalesBot() {
       scrollToBottom();
     }
   }, [messages, isOpen]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
+
 
   const quickPrompts = [
     'How can Next.js web dev increase my sales?',
@@ -110,48 +126,70 @@ export default function AiSalesBot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-sans">
+    <div className="fixed bottom-[20px] right-[20px] md:bottom-6 md:right-6 z-50 font-sans ai-bot-widget-container">
       {/* 1. FLOATING NEON TRIGGER BUTTON */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-[#090D16] border-2 border-[#00F0FF] text-white shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(0,240,255,0.7)] transition-all duration-300 hover:scale-105 cursor-pointer"
-          aria-label="Open AI Sales Concierge"
-        >
-          <div className="relative flex items-center justify-center">
-            <span className="w-3 h-3 rounded-full bg-[#00F0FF] animate-ping absolute"></span>
-            <span className="w-2.5 h-2.5 rounded-full bg-[#00F0FF] relative"></span>
-          </div>
+        <div className="relative">
+          {/* 'Need help? Talk to Shepherd' Text Bubble */}
+          {showTooltip && (
+            <div className="absolute -top-10 right-0 bg-[#00F0FF] text-[#090D16] font-mono text-[11px] font-bold px-3 py-1 rounded-xl rounded-br-none shadow-[0_0_15px_rgba(0,240,255,0.4)] whitespace-nowrap animate-in fade-in slide-in-from-bottom-2 duration-300 pointer-events-none transition-all">
+              Need help? Talk to Shepherd 👋
+            </div>
+          )}
 
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
-            <span>🤖</span>
-            <span>SJO AI CONCIERGE</span>
-          </span>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative group flex items-center justify-center gap-2.5 w-14 h-14 md:w-auto md:h-auto md:px-4 md:py-2.5 rounded-full bg-[#090D16] border-2 border-[#00F0FF] text-white shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(0,240,255,0.7)] transition-all duration-300 hover:scale-105 cursor-pointer shrink-0 ai-bot-trigger-btn animate-pulse-3-times"
+            aria-label="Talk to Shepherd"
+          >
+            {/* Top-Right Corner Notification Status Badge */}
+            <div className="absolute -top-1 -right-1 flex items-center justify-center pointer-events-none z-10">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#00F0FF] animate-ping absolute opacity-75"></span>
+              <span className="w-3.5 h-3.5 rounded-full bg-[#00F0FF] border-2 border-[#090D16] relative shadow-[0_0_10px_#00F0FF]"></span>
+            </div>
 
-          <span className="text-[10px] font-mono font-bold bg-[#00F0FF] text-[#090D16] px-2 py-0.5 rounded-full">
-            24/7 ONLINE
-          </span>
-        </button>
+            {/* Shepherd Avatar Image */}
+            <div className="w-10 h-10 md:w-8 md:h-8 rounded-full overflow-hidden shrink-0 border border-[#00F0FF]/60 flex items-center justify-center">
+              <img
+                src="/images/passport.jpg"
+                alt="Shepherd"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <span className="hidden md:inline font-mono text-xs font-bold uppercase tracking-wider text-white ml-1">
+              TALK TO SHEPHERD
+            </span>
+
+            <span className="hidden md:inline-block text-[10px] font-mono font-bold bg-[#00F0FF] text-[#090D16] px-2 py-0.5 rounded-full ml-1">
+              24/7 ONLINE
+            </span>
+          </button>
+        </div>
       )}
 
       {/* 2. GLASSMORPHISM CHAT DRAWER */}
       {isOpen && (
-        <div className="w-[360px] sm:w-[420px] h-[580px] bg-[#090D16]/95 backdrop-blur-xl border-2 border-[#00F0FF]/40 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden text-white relative animate-in fade-in slide-in-from-bottom-5 duration-300">
+        <div className="w-[calc(100vw-40px)] max-w-[380px] sm:w-[420px] h-[520px] sm:h-[580px] max-h-[80vh] bg-[#090D16]/95 backdrop-blur-xl border-2 border-[#00F0FF]/40 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden text-white relative animate-in fade-in slide-in-from-bottom-5 duration-300">
           {/* Header Telemetry Bar */}
           <div className="bg-[#131927] border-b border-[#1E293B] p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#090D16] border border-[#00F0FF]/50 flex items-center justify-center text-xl shadow-inner">
-                🤖
+              <div className="w-10 h-10 rounded-full bg-[#090D16] border border-[#00F0FF]/60 overflow-hidden shrink-0 flex items-center justify-center shadow-inner">
+                <img
+                  src="/images/passport.jpg"
+                  alt="Shepherd"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="font-mono text-xs font-extrabold text-white uppercase tracking-wider">
-                    SJO AI Concierge
+                    Shepherd • SJO LABS
                   </h3>
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 </div>
                 <p className="text-[10px] font-mono text-[#00F0FF]">
-                  Groq AI Engine • 24/7 Sales &amp; Intake
+                  24/7 Strategy &amp; Consultation
                 </p>
               </div>
             </div>

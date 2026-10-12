@@ -524,7 +524,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   const article = getArticleData(params.slug);
   const titleText = article.seoTitle || article.title;
   const descriptionText = article.metaDescription || article.excerpt;
-  const articleUrl = `https://sjolabs.com/blog/${article.slug}`;
+  const articleUrl = `https://sjolabs.site/blog/${article.slug}`;
 
   const isDraft = article.status === 'draft';
 
@@ -679,7 +679,7 @@ function renderArticleContent(content?: string) {
 
 export default function BlogArticlePage({ params }: BlogArticlePageProps) {
   const article = getArticleData(params.slug);
-  const articleUrl = `https://sjolabs.com/blog/${article.slug}`;
+  const articleUrl = `https://sjolabs.site/blog/${article.slug}`;
 
   // Smart Default Fallbacks
   const displaySeoTitle = article.seoTitle || article.title;
@@ -711,7 +711,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
     publisher: {
       '@type': 'Organization',
       name: 'SJO LABS',
-      url: 'https://sjolabs.com',
+      url: 'https://sjolabs.site',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -727,19 +727,19 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://sjolabs.com',
+        item: 'https://sjolabs.site',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: 'https://sjolabs.com/blog',
+        item: 'https://sjolabs.site/blog',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: article.category,
-        item: 'https://sjolabs.com/blog',
+        item: 'https://sjolabs.site/blog',
       },
       {
         '@type': 'ListItem',

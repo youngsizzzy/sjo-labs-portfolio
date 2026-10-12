@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import AdminSidebar from '@/components/admin/AdminSidebar';
-import { getStoredProjects, getStoredBlogs } from '@/lib/adminStore';
+import { getStoredProjects, getStoredBlogs, fetchProjectsFromSupabase, fetchBlogsFromSupabase } from '@/lib/adminStore';
 
 import { validateAdminPasscode, generateAdminAuthToken, ADMIN_SESSION_KEY, ADMIN_TOKEN_KEY } from '@/lib/adminAuth';
 
@@ -24,6 +24,13 @@ export default function AdminDashboardPage() {
 
     setProjectCount(getStoredProjects().length);
     setBlogCount(getStoredBlogs().length);
+
+    fetchProjectsFromSupabase().then((p) => {
+      if (p) setProjectCount(p.length);
+    });
+    fetchBlogsFromSupabase().then((b) => {
+      if (b) setBlogCount(b.length);
+    });
   }, []);
 
   const handleLogin = (e: React.FormEvent) => {

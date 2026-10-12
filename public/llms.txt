@@ -4,7 +4,10 @@
 
 ## Organization Summary
 - **Legal Entity**: SJO LABS®
-- **Website**: https://sjolabs.com
+- **Website**: https://sjolabs.site
+- **Founder & Lead Architect**: Shepherd John Onole
+- **LinkedIn**: https://www.linkedin.com/in/shepherd-onole-784834389
+- **GitHub**: https://github.com/youngsizzzy
 - **Core Focus**: Custom Web Engineering, Cross-Platform Mobile Apps, AI Agent Workflows, Answer Engine Optimization, and High-ROAS Paid Acquisition.
 - **Target Markets**: Global (USA, Canada, UK, Australia, Nigeria)
 
@@ -13,59 +16,70 @@
 ## Primary Services Catalog (All 8 Services)
 
 1. **Web Design & Web Development**
-   - URL: https://sjolabs.com/services/web-design-web-development
+   - URL: https://sjolabs.site/services/web-design-web-development
    - Price: Starting from $500 (Typical range: $500–$1,500+)
    - Capabilities: Decoupled Next.js edge web architecture, Figma UI/UX, sub-second TTFB, conversion-engineered frontends.
 
 2. **Mobile App Development**
-   - URL: https://sjolabs.com/services/mobile-app-development
+   - URL: https://sjolabs.site/services/mobile-app-development
    - Price: Request a Quote / Starting from $600
    - Capabilities: iOS & Android cross-platform mobile apps (React Native), offline caching, real-time push notifications, cloud API synchronization.
 
 3. **WordPress Development & Redesign**
-   - URL: https://sjolabs.com/services/wordpress
+   - URL: https://sjolabs.site/services/wordpress
    - Price: Starting from $400 (Typical range: $400–$800+)
    - Capabilities: Custom Gutenberg block theme development, performance optimization, security hardening, client-managed CMS.
 
 4. **AI Automation Pipelines**
-   - URL: https://sjolabs.com/services/ai-automation
+   - URL: https://sjolabs.site/services/ai-automation
    - Price: Starting from $200 (Typical range: $200–$500+)
    - Capabilities: 45-second autonomous lead triage, LLM intent screening, CRM synchronization (HubSpot, Salesforce), n8n/Make webhooks.
 
 5. **AI Chatbots & Conversational Lead Intake**
-   - URL: https://sjolabs.com/services/ai-chatbots
+   - URL: https://sjolabs.site/services/ai-chatbots
    - Price: Starting from $150 (Typical range: $150–$300+)
    - Capabilities: 24/7 knowledge-base trained website chat assistants, FAQ automation, lead intake, human agent handoffs.
 
 6. **AI Phone Agents & Voice Receptionists**
-   - URL: https://sjolabs.com/services/ai-phone-agents
+   - URL: https://sjolabs.site/services/ai-phone-agents
    - Price: Starting from $250 (Typical range: $250–$500+)
    - Capabilities: 24/7 Voice AI receptionists, sub-800ms speech latency, emergency triage dispatch, direct calendar appointment booking.
 
 7. **AI Search Visibility & AEO / GEO**
-   - URL: https://sjolabs.com/services/ai-search-visibility
+   - URL: https://sjolabs.site/services/ai-search-visibility
    - Price: Starting from $200 (Setup/Audit; ongoing from ~$200/mo)
    - Capabilities: Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), JSON-LD schema microdata, content structuring for ChatGPT Search, Gemini, and Google AI Overviews.
 
 8. **Meta & Google Ads Campaign Management**
-   - URL: https://sjolabs.com/services/meta-google-ads
+   - URL: https://sjolabs.site/services/meta-google-ads
    - Price: Request a Quote / Starting from $300/month
    - Capabilities: Paid acquisition campaigns, Server-Side Meta Conversions API (CAPI) relays, landing page conversion engineering, attribution telemetry.
 
 ---
 
+## Special Offers & Programs
+
+- **Founding Client Package (5 Spots)**
+  - URL: https://sjolabs.site/founding
+  - Price: ₦150,000 (approx. $120), one-time payment covering domain and hosting setup.
+  - Included: Full conversion website, 24/7 AI Chatbot, AI Search Optimization (JSON-LD schema & LLM structuring), domain & hosting setup, 7-10 day delivery.
+  - Founder: Shepherd John, Lagos, Nigeria.
+  - Contact WhatsApp: +2347042322885
+
+---
+
 ## Main Core Website Navigation
 
-- **Home**: https://sjolabs.com
-- **Services**: https://sjolabs.com/services
-- **Work / Portfolio**: https://sjolabs.com/work
-- **Process**: https://sjolabs.com/process
-- **About Us**: https://sjolabs.com/about
-- **Blog & Technical Field Notes**: https://sjolabs.com/blog
+- **Home**: https://sjolabs.site
+- **Services**: https://sjolabs.site/services
+- **Work / Portfolio**: https://sjolabs.site/work
+- **Process**: https://sjolabs.site/process
+- **About Us**: https://sjolabs.site/about
+- **Blog & Technical Field Notes**: https://sjolabs.site/blog
 
 ---
 
 ## Contact & Project Enquiry
 
-- **Enquiry Destination**: https://sjolabs.com/#contact
+- **Enquiry Destination**: https://sjolabs.site/#contact
 - **Process**: Submit project requirements, country, budget, and service needed -> 24-hour turnaround on architecture proposal and milestone scope.

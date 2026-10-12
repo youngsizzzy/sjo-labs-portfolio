@@ -77,6 +77,7 @@ export default function WorkProjectsFilter() {
                     src={p.imageSrc}
                     alt={p.title}
                     fill
+                    unoptimized
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-95"
                   />
                   <div className="absolute top-4 left-4 bg-[#090D16]/90 backdrop-blur-sm border border-[#1E293B] text-[#00F0FF] font-mono text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">

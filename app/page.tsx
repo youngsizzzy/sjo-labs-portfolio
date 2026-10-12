@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   title: 'SJO LABS® — Web Design & Dev, Mobile Apps, AI Automation & Meta/Google Ads',
   description: 'SJO LABS is a high-velocity digital service studio delivering sub-second Web Architecture, iOS/Android Mobile Apps, Autonomous AI Workflows, and Meta & Google Ads.',
   alternates: {
-    canonical: 'https://sjolabs.com',
+    canonical: 'https://sjolabs.site',
   },
   openGraph: {
     title: 'SJO LABS® — Web Design & Dev, Mobile Apps, AI Automation & Meta/Google Ads',
     description: 'High-velocity digital service studio delivering sub-second Web Architecture, Mobile Applications, Autonomous AI Automation Workflows, and Meta/Google Ads Scaling.',
-    url: 'https://sjolabs.com',
+    url: 'https://sjolabs.site',
     siteName: 'SJO LABS',
     type: 'website',
   },

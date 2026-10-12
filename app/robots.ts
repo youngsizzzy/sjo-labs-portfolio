@@ -8,7 +8,22 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/admin/', '/api/admin/'],
       },
+      // Explicit affirmative indexing for AI Answer Engines
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'PerplexityBot',
+          'ClaudeBot',
+          'Google-Extended',
+          'Applebot-Extended',
+          'CCBot',
+          'meta-externalagent',
+        ],
+        allow: '/',
+        disallow: ['/admin/', '/api/admin/'],
+      },
     ],
-    sitemap: 'https://sjolabs.com/sitemap.xml',
+    sitemap: 'https://sjolabs.site/sitemap.xml',
   };
 }

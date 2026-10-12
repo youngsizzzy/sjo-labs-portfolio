@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: 'Our Work, Case Studies & Impact Telemetry | SJO LABS',
   description: 'Explore verified commercial case studies, headless Next.js web applications, mobile apps, AI triage workflows, and server-side CAPI ad scaling deployments by SJO LABS.',
   alternates: {
-    canonical: 'https://sjolabs.com/work',
+    canonical: 'https://sjolabs.site/work',
   },
   openGraph: {
     title: 'Our Work, Case Studies & Impact Telemetry | SJO LABS',
     description: 'Explore verified commercial case studies, headless Next.js web applications, mobile apps, AI triage workflows, and server-side CAPI ad scaling deployments by SJO LABS.',
-    url: 'https://sjolabs.com/work',
+    url: 'https://sjolabs.site/work',
     siteName: 'SJO LABS',
     type: 'website',
   },

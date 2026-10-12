@@ -13,6 +13,8 @@ export default function ZilkanTeam() {
       bio: 'Pioneers high-velocity Next.js web architectures, conversion rate optimization, and enterprise web engineering.',
       tags: ['Next.js 15', 'React', 'TypeScript', 'Web Architecture'],
       status: 'Accepting Clients',
+      linkedin: 'https://www.linkedin.com/in/shepherd-onole-784834389',
+      github: 'https://github.com/youngsizzzy',
     },
     {
       name: 'Rita Isioma Ojelede',
@@ -22,6 +24,7 @@ export default function ZilkanTeam() {
       bio: 'Engineers autonomous workflow automation pipelines, CRM integrations, and custom LLM triage agents.',
       tags: ['n8n / Make', 'AI Agents', 'CRM Workflows', 'Python'],
       status: 'In Studio',
+      linkedin: 'https://www.linkedin.com/in/shepherd-onole-784834389',
     },
     {
       name: 'Marcus Vance',
@@ -31,6 +34,7 @@ export default function ZilkanTeam() {
       bio: 'Crafts luxury digital aesthetics, cross-platform mobile app interfaces, and conversion-focused user journeys.',
       tags: ['Figma', 'iOS & Android', 'Design Tokens', 'Framer'],
       status: 'In Studio',
+      linkedin: 'https://www.linkedin.com/in/shepherd-onole-784834389',
     },
     {
       name: 'David Miller',
@@ -40,6 +44,7 @@ export default function ZilkanTeam() {
       bio: 'Data-driven media buyer scaling profitable paid acquisition campaigns across Meta and Google.',
       tags: ['Meta Ads', 'Google Ads', 'Pixel CAPI', 'ROAS Scaling'],
       status: 'In Studio',
+      linkedin: 'https://www.linkedin.com/in/shepherd-onole-784834389',
     },
   ];
 
@@ -122,11 +127,36 @@ export default function ZilkanTeam() {
                 {/* Social Links */}
                 <div className="flex items-center justify-between text-[#64748B] text-xs pt-2">
                   <span className="font-mono text-[10px] text-[#94A3B8]">SENIOR LEAD</span>
-                  <div className="flex space-x-3">
-                    <a href="#" className="hover:text-[#2563EB] transition-colors" title="LinkedIn">
-                      <span className="material-symbols-outlined text-base">link</span>
-                    </a>
-                    <a href="#" className="hover:text-[#2563EB] transition-colors" title="Contact Direct">
+                  <div className="flex items-center space-x-3">
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[#2563EB] transition-colors flex items-center gap-1"
+                        title={`${member.name} on LinkedIn`}
+                      >
+                        <span className="material-symbols-outlined text-base">link</span>
+                        <span className="text-[10px] font-sans font-medium">LinkedIn</span>
+                      </a>
+                    )}
+                    {member.github && (
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[#0F172A] transition-colors flex items-center gap-1"
+                        title={`${member.name} on GitHub`}
+                      >
+                        <span className="material-symbols-outlined text-base">code</span>
+                        <span className="text-[10px] font-sans font-medium">GitHub</span>
+                      </a>
+                    )}
+                    <a
+                      href="mailto:contact@sjolabs.site"
+                      className="hover:text-[#2563EB] transition-colors"
+                      title={`Contact ${member.name} Direct`}
+                    >
                       <span className="material-symbols-outlined text-base">mail</span>
                     </a>
                   </div>
